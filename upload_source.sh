@@ -14,6 +14,7 @@ cd ~/rpmbuild/SOURCES
 curl -O -L https://github.com/fkooman/$GH_NAME/archive/$VERSION.tar.gz
 cd ~/rpmbuild/SPECS/
 rpmbuild -bs $1.spec
+rpmlint ~/rpmbuild/SPECS/*.spec ~/rpmbuild/SRPMS/*.rpm
 scp ~/rpmbuild/SPECS/*.spec ~/rpmbuild/SRPMS/*.rpm fedorapeople.org:~/public_html/$1/
 )
 
