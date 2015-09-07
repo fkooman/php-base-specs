@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-rest
-%global github_commit           ea0eb769b0ea27e88f4041bf0f7433c3ec5c6146
+%global github_commit           bccb1f3725a7b05bc76db5283d752e9eb7bc28b7
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    1.0.3
+Version:    1.0.4
 Release:    1%{?dist}
 Summary:    Simple PHP library for writing REST services
 
@@ -78,6 +78,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Mon Sep 07 2015 François Kooman <fkooman@tuxed.net> - 1.0.4-1
+- update to 1.0.4
+
 * Mon Sep 07 2015 François Kooman <fkooman@tuxed.net> - 1.0.3-1
 - update to 1.0.3
 
