@@ -1,10 +1,10 @@
 %global composer_vendor         fkooman
-%global composer_project        rest
-%global composer_namespace      %{composer_vendor}/Rest
+%global composer_project        http
+%global composer_namespace      %{composer_vendor}/Http
 
 %global github_owner            fkooman
-%global github_name             php-lib-rest
-%global github_commit           ea0eb769b0ea27e88f4041bf0f7433c3ec5c6146
+%global github_name             php-lib-http
+%global github_commit           0069355d4797fe51b358e9386d4c6c261a7f0880
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,9 +13,9 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    1.0.3
-Release:    1%{?dist}
-Summary:    Simple PHP library for writing REST services
+Version:    1.0.1
+Release:    2%{?dist}
+Summary:    Simple PHP library for dealing with HTTP requests and responses
 
 Group:      System Environment/Libraries
 License:    ASL 2.0
@@ -31,22 +31,23 @@ BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  %{_bindir}/phpunit
 BuildRequires:  %{_bindir}/phpab
 BuildRequires:  php-composer(symfony/class-loader)
-BuildRequires:  php-composer(fkooman/http) >= 1.0.0
-BuildRequires:  php-composer(fkooman/http) < 2.0.0
+BuildRequires:  php-composer(fkooman/json) >= 1.0.0
+BuildRequires:  php-composer(fkooman/json) < 2.0.0
 %endif
 
 Requires:   php(language) >= 5.3.0
-Requires:   php-pcre
+Requires:   php-mbstring
+Requires:   php-session
 Requires:   php-spl
 Requires:   php-standard
 Requires:   php-composer(symfony/class-loader)
-Requires:   php-composer(fkooman/http) >= 1.0.0
-Requires:   php-composer(fkooman/http) < 2.0.0
+Requires:   php-composer(fkooman/json) >= 1.0.0
+Requires:   php-composer(fkooman/json) < 2.0.0
 
 Provides:   php-composer(%{composer_vendor}/%{composer_project}) = %{version}
 
 %description
-Library written in PHP to make it easy to develop REST applications.
+Helper library for fkooman/rest to deal with HTTP requests and responses.
 
 %prep
 %setup -qn %{github_name}-%{github_commit} 
@@ -78,18 +79,14 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
-* Mon Sep 07 2015 François Kooman <fkooman@tuxed.net> - 1.0.3-1
-- update to 1.0.3
+* Mon Sep 07 2015 François Kooman <fkooman@tuxed.net> - 1.0.1-2
+- update the commit
 
-* Wed Sep 02 2015 François Kooman <fkooman@tuxed.net> - 1.0.2-2
-- add autoloader
-- run tests during build
-
-* Wed Aug 05 2015 François Kooman <fkooman@tuxed.net> - 1.0.2-1
-- update to 1.0.2
-
-* Mon Jul 20 2015 François Kooman <fkooman@tuxed.net> - 1.0.1-1
+* Mon Sep 07 2015 François Kooman <fkooman@tuxed.net> - 1.0.1-1
 - update to 1.0.1
 
-* Sun Jul 19 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-1
-- update to 1.0.0
+* Mon Sep 07 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-2
+- add additional BuildRequires
+
+* Mon Sep 07 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-1
+- initial package

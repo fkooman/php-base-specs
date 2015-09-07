@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Autoloader for fkooman/rest.
+ * Autoloader for fkooman/http.
  */
 $vendorDir = '/usr/share/php';
 
@@ -15,7 +15,7 @@ if (!isset($fedoraClassLoader) || !($fedoraClassLoader instanceof \Symfony\Compo
     $fedoraClassLoader->register();
 }
 $fedoraClassLoader->addPrefixes(array(
-    'fkooman\\Rest' => dirname(dirname(__DIR__)),
+    'fkooman\\Http' => dirname(dirname(__DIR__))
 ));
 
-require_once $vendorDir.'/fkooman/Http/autoload.php';
+require_once $vendorDir.'/fkooman/Json/autoload.php';
