@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Autoloader for fkooman/http.
+ * Autoloader for fkooman/oauth.
  */
 $vendorDir = '/usr/share/php';
 
@@ -15,7 +15,12 @@ if (!isset($fedoraClassLoader) || !($fedoraClassLoader instanceof \Symfony\Compo
     $fedoraClassLoader->register();
 }
 $fedoraClassLoader->addPrefixes(array(
-    'fkooman\\Http' => dirname(dirname(__DIR__)),
+    'fkooman\\OAuth' => dirname(dirname(__DIR__)),
 ));
 
+require_once $vendorDir.'/fkooman/IO/autoload.php';
 require_once $vendorDir.'/fkooman/Json/autoload.php';
+require_once $vendorDir.'/fkooman/Rest/autoload.php';
+require_once $vendorDir.'/fkooman/Rest/Plugin/Authentication/Basic/autoload.php';
+require_once $vendorDir.'/fkooman/Tpl/autoload.php';
+require_once $vendorDir.'/fkooman/Base64/autoload.php';
