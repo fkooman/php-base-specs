@@ -14,7 +14,7 @@
 
 Name:       php-%{composer_vendor}-%{composer_project}
 Version:    1.0.0
-Release:    0.2.git%{github_short}%{?dist}
+Release:    0.3.git%{github_short}%{?dist}
 Summary:    OAuth 2.0 Authorization Server library
 
 Group:      System Environment/Libraries
@@ -28,6 +28,10 @@ BuildArch:  noarch
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n) 
 
 %if %{with_tests}
+BuildRequires:  php-filter
+BuildRequires:  php-pcre
+BuildRequires:  php-pdo
+BuildRequires:  php-standard
 BuildRequires:  php-composer(symfony/class-loader)
 BuildRequires:  %{_bindir}/phpunit
 BuildRequires:  %{_bindir}/phpab
@@ -97,6 +101,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Sat Sep 12 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.3.git9f62eeb
+- add missing buildrequires
+
 * Sat Sep 12 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.2.git9f62eeb
 - update to newer snapshot
 - change source0 to commit reference
