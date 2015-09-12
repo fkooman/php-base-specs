@@ -1,48 +1,62 @@
-%global composer_vendor  fkooman
-%global composer_project tpl
+%global composer_vendor         fkooman
+%global composer_project        tpl
+%global composer_namespace      %{composer_vendor}/Tpl
 
-%global github_owner     fkooman
-%global github_name      php-lib-tpl
+%global github_owner            fkooman
+%global github_name             php-lib-tpl
+%global github_commit           ce51fa8da33d231aaeefd4558f1d813a1edc5931
+%global github_short            %(c=%{github_commit}; echo ${c:0:7})
+
 
 Name:       php-%{composer_vendor}-%{composer_project}
 Version:    2.0.0
-Release:    2%{?dist}
+Release:    3%{?dist}
 Summary:    Simple Template Abstraction Library
 
 Group:      System Environment/Libraries
 License:    ASL 2.0
+
 URL:        https://github.com/%{github_owner}/%{github_name}
-Source0:    https://github.com/%{github_owner}/%{github_name}/archive/%{version}.tar.gz
+Source0:    %{url}/archive/%{github_commit}/%{name}-%{version}-%{github_short}.tar.gz
 Source1:    %{name}-autoload.php
 
 BuildArch:  noarch
-
-Provides:   php-composer(%{composer_vendor}/%{composer_project}) = %{version}
+BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n) 
 
 Requires:   php(language) >= 5.3.3
 Requires:   php-standard
+
+Provides:   php-composer(%{composer_vendor}/%{composer_project}) = %{version}
 
 %description
 Simple Template Abstraction Library.
 
 %prep
-%setup -qn %{github_name}-%{version}
-cp %{SOURCE1} src/%{composer_vendor}/Tpl/autoload.php
+%setup -qn %{github_name}-%{github_commit} 
+cp %{SOURCE1} src/%{composer_namespace}/autoload.php
 
 %build
 
 %install
+rm -rf %{buildroot} 
 mkdir -p ${RPM_BUILD_ROOT}%{_datadir}/php
 cp -pr src/* ${RPM_BUILD_ROOT}%{_datadir}/php
 
+%clean
+rm -rf %{buildroot}
+
 %files
 %defattr(-,root,root,-)
-%dir %{_datadir}/php/%{composer_vendor}/Tpl
-%{_datadir}/php/%{composer_vendor}/Tpl
+%{_datadir}/php/%{composer_namespace}
 %doc README.md CHANGES.md composer.json
+%{!?_licensedir:%global license %%doc} 
 %license COPYING
 
 %changelog
+* Tue Sep 08 2015 François Kooman <fkooman@tuxed.net> - 2.0.0-3
+- change source0 to commit reference
+- other cleanups
+
 * Thu Sep 03 2015 François Kooman <fkooman@tuxed.net> - 2.0.0-2
 - add autoloader
 
