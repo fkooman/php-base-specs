@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-oauth
-%global github_commit           9f62eeb985b560ff1cb00bb88901150d21c45101
+%global github_commit           d745829ac73fc5b55738949ca26670a5611325f2
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -14,7 +14,7 @@
 
 Name:       php-%{composer_vendor}-%{composer_project}
 Version:    1.0.0
-Release:    0.3.git%{github_short}%{?dist}
+Release:    0.4.git%{github_short}%{?dist}
 Summary:    OAuth 2.0 Authorization Server library
 
 Group:      System Environment/Libraries
@@ -101,6 +101,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Mon Sep 21 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.4.git9f62eeb
+- rebuilt
+
 * Sat Sep 12 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-0.3.git9f62eeb
 - add missing buildrequires
 
