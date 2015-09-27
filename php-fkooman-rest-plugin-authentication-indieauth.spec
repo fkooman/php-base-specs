@@ -14,7 +14,7 @@
 
 Name:       php-%{composer_vendor}-%{composer_project}
 Version:    1.0.1
-Release:    2%{?dist}
+Release:    3%{?dist}
 Summary:    IndieAuth Authentication plugin for fkooman/rest
 
 Group:      System Environment/Libraries
@@ -98,6 +98,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Sun Sep 27 2015 François Kooman <fkooman@tuxed.net> - 1.0.1-3
+- fix autoloader for GuzzleHttp
+
 * Mon Sep 21 2015 François Kooman <fkooman@tuxed.net> - 1.0.1-2
 - forgot to update git tag
 
