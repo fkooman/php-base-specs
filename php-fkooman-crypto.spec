@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-crypto
-%global github_commit           6a1aa2c6fdd7c8c42c01863e961570d06998e33f
+%global github_commit           c448f4ebf7246160e537a63a6be711ee1d8f2a37
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    1.0.1
+Version:    2.0.0
 Release:    1%{?dist}
 Summary:    A simple encryption and decryption library
 
@@ -40,6 +40,8 @@ BuildRequires:  %{_bindir}/phpunit
 BuildRequires:  %{_bindir}/phpab
 BuildRequires:  php-composer(fkooman/base64) >= 1.0
 BuildRequires:  php-composer(fkooman/base64) < 2.0
+BuildRequires:  php-composer(fkooman/io) >= 1.0
+BuildRequires:  php-composer(fkooman/io) < 2.0
 BuildRequires:  php-composer(fkooman/json) >= 1.0
 BuildRequires:  php-composer(fkooman/json) < 2.0
 %endif
@@ -52,6 +54,8 @@ Requires:   php-spl
 Requires:   php-standard
 Requires:   php-composer(fkooman/base64) >= 1.0
 Requires:   php-composer(fkooman/base64) < 2.0
+Requires:   php-composer(fkooman/io) >= 1.0
+Requires:   php-composer(fkooman/io) < 2.0
 Requires:   php-composer(fkooman/json) >= 1.0
 Requires:   php-composer(fkooman/json) < 2.0
 Requires:   php-composer(symfony/class-loader)
@@ -92,6 +96,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Wed Oct 07 2015 François Kooman <fkooman@tuxed.net> - 2.0.0-1
+- update to 2.0.0
+
 * Tue Sep 15 2015 François Kooman <fkooman@tuxed.net> - 1.0.1-1
 - update to 1.0.1
 - change source0 to commit reference

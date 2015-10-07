@@ -19,4 +19,5 @@ $fedoraClassLoader->addPrefixes(array(
 ));
 
 require_once $vendorDir.'/fkooman/Base64/autoload.php';
+require_once $vendorDir.'/fkooman/IO/autoload.php';
 require_once $vendorDir.'/fkooman/Json/autoload.php';
