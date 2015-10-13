@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-rest-plugin-authentication
-%global github_commit           058406d6a569e2fdbfb7899a4ba1d9720b7f70f0
+%global github_commit           6722f767a2c077259bb41297ac2d2dd074657cb0
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    1.0.1
+Version:    1.0.2
 Release:    1%{?dist}
 Summary:    Authentication plugin for fkooman/rest
 
@@ -77,6 +77,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Tue Oct 13 2015 François Kooman <fkooman@tuxed.net> - 1.0.2-1
+- update to 1.0.2
+
 * Sat Sep 12 2015 François Kooman <fkooman@tuxed.net> - 1.0.1-1
 - update to 1.0.1
 
