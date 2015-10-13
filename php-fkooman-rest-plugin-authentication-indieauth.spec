@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-rest-plugin-authentication-indieauth
-%global github_commit           4245db984de87bc62f036c15c9a58699166f8692
+%global github_commit           7d5547e3807adeee24e0ba0e988b1fadaa9cfdc2
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,8 +13,8 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    1.0.1
-Release:    3%{?dist}
+Version:    1.0.2
+Release:    1%{?dist}
 Summary:    IndieAuth Authentication plugin for fkooman/rest
 
 Group:      System Environment/Libraries
@@ -98,6 +98,12 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Tue Oct 13 2015 François Kooman <fkooman@tuxed.net> - 1.0.2-1
+- update to 1.0.2
+
+* Tue Oct 13 2015 François Kooman <fkooman@tuxed.net> - 1.0.1-4
+- no longer require workaround for php-guzzlehttp-guzzle autoloader
+
 * Sun Sep 27 2015 François Kooman <fkooman@tuxed.net> - 1.0.1-3
 - fix autoloader for GuzzleHttp
 

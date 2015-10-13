@@ -14,7 +14,7 @@
 
 Name:       php-%{composer_vendor}-%{composer_project}
 Version:    1.0.0
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    WebFinger client library
 
 Group:      System Environment/Libraries
@@ -81,5 +81,8 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Tue Oct 13 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-2
+- no longer require workaround for php-guzzlehttp-guzzle autoloader
+
 * Tue Oct 06 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-1
 - initial package

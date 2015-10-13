@@ -19,6 +19,3 @@ $fedoraClassLoader->addPrefixes(array(
 ));
 
 require_once $vendorDir.'/GuzzleHttp/autoload.php';
-
-// https://bugzilla.redhat.com/show_bug.cgi?id=1264987
-require_once $vendorDir.'/React/Promise/autoload.php';
