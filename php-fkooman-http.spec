@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-http
-%global github_commit           c21cf15653c0d190da0590a015e0e6702cbcc8c3
+%global github_commit           0a94ec8a08d67055dd7e515cf327f03d53dc025b
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    1.1.0
+Version:    1.1.1
 Release:    1%{?dist}
 Summary:    Simple PHP library for dealing with HTTP requests and responses
 
@@ -79,6 +79,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Tue Oct 13 2015 François Kooman <fkooman@tuxed.net> - 1.1.1-1
+- update to 1.1.1
+
 * Wed Oct 07 2015 François Kooman <fkooman@tuxed.net> - 1.1.0-1
 - update to 1.1.0
 

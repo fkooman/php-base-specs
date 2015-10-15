@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-oauth
-%global github_commit           2f84814ec60f3ecda5a220c48b77d2b7e33075ff
+%global github_commit           21e7b3d6550197d48484643f75f244bd6185a991
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,8 +13,8 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    1.0.0
-Release:    1%{?dist}
+Version:    2.0.0
+Release:    2%{?dist}
 Summary:    OAuth 2.0 Authorization Server library
 
 Group:      System Environment/Libraries
@@ -31,6 +31,7 @@ BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  php-filter
 BuildRequires:  php-pcre
 BuildRequires:  php-pdo
+BuildRequires:  php-spl
 BuildRequires:  php-standard
 BuildRequires:  php-composer(symfony/class-loader)
 BuildRequires:  %{_bindir}/phpunit
@@ -39,6 +40,8 @@ BuildRequires:  php-composer(fkooman/json) >= 1.0.0
 BuildRequires:  php-composer(fkooman/json) < 2.0.0
 BuildRequires:  php-composer(fkooman/io) >= 1.0.0
 BuildRequires:  php-composer(fkooman/io) < 2.0.0
+BuildRequires:  php-composer(fkooman/http) >= 1.1.0
+BuildRequires:  php-composer(fkooman/http) < 2.0.0
 BuildRequires:  php-composer(fkooman/rest) >= 1.0.0
 BuildRequires:  php-composer(fkooman/rest) < 2.0.0
 BuildRequires:  php-composer(fkooman/tpl) >= 2.0.0
@@ -53,17 +56,23 @@ Requires:   php(language) >= 5.3.3
 Requires:   php-filter
 Requires:   php-pcre
 Requires:   php-pdo
+Requires:   php-spl
 Requires:   php-standard
 Requires:   php-composer(fkooman/json) >= 1.0.0
 Requires:   php-composer(fkooman/json) < 2.0.0
 Requires:   php-composer(fkooman/io) >= 1.0.0
 Requires:   php-composer(fkooman/io) < 2.0.0
+Requires:   php-composer(fkooman/http) >= 1.1.0
+Requires:   php-composer(fkooman/http) < 2.0.0
 Requires:   php-composer(fkooman/rest) >= 1.0.0
 Requires:   php-composer(fkooman/rest) < 2.0.0
 Requires:   php-composer(fkooman/tpl) >= 2.0.0
 Requires:   php-composer(fkooman/tpl) < 3.0.0
 Requires:   php-composer(fkooman/rest-plugin-authentication-basic) >= 1.0.0
 Requires:   php-composer(fkooman/rest-plugin-authentication-basic) < 2.0.0
+Requires:   php-composer(fkooman/base64) >= 1.0.0
+Requires:   php-composer(fkooman/base64) < 2.0.0
+
 Requires:   php-composer(symfony/class-loader)
 
 Provides:   php-composer(%{composer_vendor}/%{composer_project}) = %{version}
@@ -101,5 +110,11 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Thu Oct 15 2015 François Kooman <fkooman@tuxed.net> - 2.0.0-2
+- also require fkooman/base64
+
+* Thu Oct 15 2015 François Kooman <fkooman@tuxed.net> - 2.0.0-1
+- update to 2.0.0
+
 * Mon Sep 21 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-1
 - release 1.0.0
