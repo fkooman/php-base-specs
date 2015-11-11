@@ -1,10 +1,10 @@
 %global composer_vendor         fkooman
-%global composer_project        http
-%global composer_namespace      %{composer_vendor}/Http
+%global composer_project        config
+%global composer_namespace      %{composer_vendor}/Config
 
 %global github_owner            fkooman
-%global github_name             php-lib-http
-%global github_commit           7486963b0643cf35e40c89ee17e22425be36196e
+%global github_name             php-lib-config
+%global github_commit           961f2cb63bab8916c921a7b29a7eb3e22b5bcda1
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,9 +13,9 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    1.2.0
-Release:    1%{?dist}
-Summary:    Simple PHP library for dealing with HTTP requests and responses
+Version:    1.0.0
+Release:    3%{?dist}
+Summary:    Read and write configuration files
 
 Group:      System Environment/Libraries
 License:    ASL 2.0
@@ -28,26 +28,26 @@ BuildArch:  noarch
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n) 
 
 %if %{with_tests}
+BuildRequires:  php-composer(symfony/class-loader)
 BuildRequires:  %{_bindir}/phpunit
 BuildRequires:  %{_bindir}/phpab
-BuildRequires:  php-composer(symfony/class-loader)
-BuildRequires:  php-composer(fkooman/json) >= 1.0.0
-BuildRequires:  php-composer(fkooman/json) < 2.0.0
+BuildRequires:  php-composer(symfony/yaml)
 %endif
 
-Requires:   php(language) >= 5.3.0
-Requires:   php-mbstring
-Requires:   php-session
+Requires:   php(language) >= 5.3.3
 Requires:   php-spl
 Requires:   php-standard
 Requires:   php-composer(symfony/class-loader)
-Requires:   php-composer(fkooman/json) >= 1.0.0
-Requires:   php-composer(fkooman/json) < 2.0.0
+Requires:   php-composer(symfony/yaml)
 
 Provides:   php-composer(%{composer_vendor}/%{composer_project}) = %{version}
 
 %description
-Helper library for fkooman/rest to deal with HTTP requests and responses.
+Simple library for reading and writing configuration files.
+
+Supported formats:
+* INI
+* YAML
 
 %prep
 %setup -qn %{github_name}-%{github_commit} 
@@ -79,32 +79,11 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
-* Tue Nov 10 2015 François Kooman <fkooman@tuxed.net> - 1.2.0-1
-- update to 1.2.0
+* Mon Nov 09 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-3
+- point to old autoloader.php instead of autoload.php as it is missing in el7
 
-* Sun Nov 01 2015 François Kooman <fkooman@tuxed.net> - 1.1.3-1
-- update to 1.1.3
+* Mon Nov 09 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-2
+- fix autoloader to require symfony/yaml
 
-* Fri Oct 30 2015 François Kooman <fkooman@tuxed.net> - 1.1.2-2
-- point to 1.1.2 commit
-
-* Fri Oct 30 2015 François Kooman <fkooman@tuxed.net> - 1.1.2-1
-- update to 1.1.2
-
-* Tue Oct 13 2015 François Kooman <fkooman@tuxed.net> - 1.1.1-1
-- update to 1.1.1
-
-* Wed Oct 07 2015 François Kooman <fkooman@tuxed.net> - 1.1.0-1
-- update to 1.1.0
-
-* Mon Sep 07 2015 François Kooman <fkooman@tuxed.net> - 1.0.1-2
-- update the commit
-
-* Mon Sep 07 2015 François Kooman <fkooman@tuxed.net> - 1.0.1-1
-- update to 1.0.1
-
-* Mon Sep 07 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-2
-- add additional BuildRequires
-
-* Mon Sep 07 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-1
+* Mon Nov 09 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-1
 - initial package
