@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-oauth
-%global github_commit           9b9662a77bdc65186317ad46be6807355fcd41b1
+%global github_commit           713ab08ba27e6f54b4c4502e5a4f470f79d24ec7
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    4.0.0
+Version:    5.0.0
 Release:    1%{?dist}
 Summary:    OAuth 2.0 Authorization Server library
 
@@ -47,10 +47,10 @@ BuildRequires:  php-composer(fkooman/rest) >= 1.0.0
 BuildRequires:  php-composer(fkooman/rest) < 2.0.0
 BuildRequires:  php-composer(fkooman/tpl) >= 2.0.0
 BuildRequires:  php-composer(fkooman/tpl) < 3.0.0
-BuildRequires:  php-composer(fkooman/rest-plugin-authentication) >= 1.0.0
-BuildRequires:  php-composer(fkooman/rest-plugin-authentication) < 2.0.0
-BuildRequires:  php-composer(fkooman/rest-plugin-authentication-basic) >= 1.0.0
-BuildRequires:  php-composer(fkooman/rest-plugin-authentication-basic) < 2.0.0
+BuildRequires:  php-composer(fkooman/rest-plugin-authentication) >= 2.0.0
+BuildRequires:  php-composer(fkooman/rest-plugin-authentication) < 3.0.0
+BuildRequires:  php-composer(fkooman/rest-plugin-authentication-basic) >= 2.0.0
+BuildRequires:  php-composer(fkooman/rest-plugin-authentication-basic) < 3.0.0
 BuildRequires:  php-composer(fkooman/base64) >= 1.0.0
 BuildRequires:  php-composer(fkooman/base64) < 2.0.0
 %endif
@@ -71,10 +71,10 @@ Requires:   php-composer(fkooman/rest) >= 1.0.0
 Requires:   php-composer(fkooman/rest) < 2.0.0
 Requires:   php-composer(fkooman/tpl) >= 2.0.0
 Requires:   php-composer(fkooman/tpl) < 3.0.0
-Requires:   php-composer(fkooman/rest-plugin-authentication) >= 1.0.0
-Requires:   php-composer(fkooman/rest-plugin-authentication) < 2.0.0
-Requires:   php-composer(fkooman/rest-plugin-authentication-basic) >= 1.0.0
-Requires:   php-composer(fkooman/rest-plugin-authentication-basic) < 2.0.0
+Requires:   php-composer(fkooman/rest-plugin-authentication) >= 2.0.0
+Requires:   php-composer(fkooman/rest-plugin-authentication) < 3.0.0
+Requires:   php-composer(fkooman/rest-plugin-authentication-basic) >= 2.0.0
+Requires:   php-composer(fkooman/rest-plugin-authentication-basic) < 3.0.0
 Requires:   php-composer(fkooman/base64) >= 1.0.0
 Requires:   php-composer(fkooman/base64) < 2.0.0
 
@@ -115,6 +115,12 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Thu Nov 19 2015 François Kooman <fkooman@tuxed.net> - 5.0.0-1
+- update to 5.0.0
+
+* Wed Nov 18 2015 François Kooman <fkooman@tuxed.net> - 4.0.1-1
+- update to 4.0.1
+
 * Tue Nov 03 2015 François Kooman <fkooman@tuxed.net> - 4.0.0-1
 - update to 4.0.0
 

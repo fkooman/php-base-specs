@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-rest-plugin-authentication
-%global github_commit           6722f767a2c077259bb41297ac2d2dd074657cb0
+%global github_commit           262fbdba24cf1c5b02016dafc65e9fff37fa6cd0
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,8 +13,8 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    1.0.2
-Release:    1%{?dist}
+Version:    2.0.0
+Release:    2%{?dist}
 Summary:    Authentication plugin for fkooman/rest
 
 Group:      System Environment/Libraries
@@ -37,7 +37,6 @@ BuildRequires:  php-composer(fkooman/rest) < 2.0.0
 
 Requires:   php(language) >= 5.3.0
 Requires:   php-spl
-Requires:   php-password-compat >= 1.0.0
 Requires:   php-composer(fkooman/rest) >= 1.0.0
 Requires:   php-composer(fkooman/rest) < 2.0.0
 Requires:   php-composer(symfony/class-loader)
@@ -77,6 +76,12 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Thu Nov 19 2015 François Kooman <fkooman@tuxed.net> - 2.0.0-2
+- no longer require php-password-compat
+
+* Thu Nov 19 2015 François Kooman <fkooman@tuxed.net> - 2.0.0-1
+- update to 2.0.0
+
 * Tue Oct 13 2015 François Kooman <fkooman@tuxed.net> - 1.0.2-1
 - update to 1.0.2
 
