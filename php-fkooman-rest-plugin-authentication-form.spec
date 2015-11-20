@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-rest-plugin-authentication-form
-%global github_commit           4e37bb0cf197344a3aff98849122709c531bc771
+%global github_commit           574af30713e50f3368ec7f061a7b26e6a23261cd
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    2.0.0
+Version:    3.0.0
 Release:    1%{?dist}
 Summary:    HTML Form Authentication plugin for fkooman/rest
 
@@ -52,7 +52,7 @@ Requires:   php(language) >= 5.4
 Requires:   php-filter
 Requires:   php-spl
 Requires:   php-composer(symfony/class-loader)
-Requires:   php-composer(fkooman/http) >= 1.0.0
+Requires:   php-composer(fkooman/http) >= 1.3.0
 Requires:   php-composer(fkooman/http) < 2.0.0
 Requires:   php-composer(fkooman/rest) >= 1.0.0
 Requires:   php-composer(fkooman/rest) < 2.0.0
@@ -99,6 +99,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Fri Nov 20 2015 François Kooman <fkooman@tuxed.net> - 3.0.0-1
+- update to 3.0.0
+
 * Thu Nov 19 2015 François Kooman <fkooman@tuxed.net> - 2.0.0-1
 - update to 2.0.0
 
