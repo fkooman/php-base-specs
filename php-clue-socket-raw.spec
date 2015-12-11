@@ -14,7 +14,7 @@
 
 Name:       php-%{composer_vendor}-%{composer_project}
 Version:    1.2.0
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    Simple and lightweight OOP wrapper for PHP's low level sockets extension
 
 Group:      System Environment/Libraries
@@ -76,5 +76,8 @@ rm -rf %{buildroot}
 %license LICENSE
 
 %changelog
+* Fri Dec 11 2015 François Kooman <fkooman@tuxed.net> - 1.2.0-2
+- rebuilt
+
 * Fri Dec 11 2015 François Kooman <fkooman@tuxed.net> - 1.2.0-1
 - initial package
