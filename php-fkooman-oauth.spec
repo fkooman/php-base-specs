@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-oauth
-%global github_commit           713ab08ba27e6f54b4c4502e5a4f470f79d24ec7
+%global github_commit           a7acb8c77fb7359ce6a23b140258daf587baac4e
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    5.0.0
+Version:    5.0.1
 Release:    1%{?dist}
 Summary:    OAuth 2.0 Authorization Server library
 
@@ -115,6 +115,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Tue Nov 24 2015 François Kooman <fkooman@tuxed.net> - 5.0.1-1
+- update to 5.0.1
+
 * Thu Nov 19 2015 François Kooman <fkooman@tuxed.net> - 5.0.0-1
 - update to 5.0.0
 

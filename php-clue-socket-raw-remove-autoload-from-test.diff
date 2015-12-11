@@ -1,0 +1,26 @@
+diff --git a/tests/FactoryTest.php b/tests/FactoryTest.php
+index 259ee23..1023df0 100644
+--- a/tests/FactoryTest.php
++++ b/tests/FactoryTest.php
+@@ -3,8 +3,6 @@
+ use Socket\Raw\Factory;
+ use Socket\Raw\Socket;
+ 
+-(include_once __DIR__.'/../vendor/autoload.php') OR die(PHP_EOL.'ERROR: composer autoloader not found, run "composer install" or see README for instructions'.PHP_EOL);
+-
+ class FactoryTest extends PHPUnit_Framework_TestCase{
+ 
+     /**
+diff --git a/tests/SocketTest.php b/tests/SocketTest.php
+index 2d137df..5a9d34a 100644
+--- a/tests/SocketTest.php
++++ b/tests/SocketTest.php
+@@ -3,8 +3,6 @@
+ use Socket\Raw\Socket;
+ use Socket\Raw\Factory;
+ 
+-(include_once __DIR__.'/../vendor/autoload.php') OR die(PHP_EOL.'ERROR: composer autoloader not found, run "composer install" or see README for instructions'.PHP_EOL);
+-
+ class SocketTest extends PHPUnit_Framework_TestCase{
+ 
+     /**
