@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-rest-plugin-authentication-indieauth
-%global github_commit           7d5547e3807adeee24e0ba0e988b1fadaa9cfdc2
+%global github_commit           579c356b6770b0351e9e773853048fa98a21cf1c
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    1.0.2
+Version:    2.0.0
 Release:    1%{?dist}
 Summary:    IndieAuth Authentication plugin for fkooman/rest
 
@@ -28,6 +28,7 @@ BuildArch:  noarch
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %if %{with_tests}
+BuildRequires:  php(language) >= 5.4.0
 BuildRequires:  php-dom
 BuildRequires:  php-filter
 BuildRequires:  php-libxml
@@ -37,29 +38,41 @@ BuildRequires:  php-standard
 BuildRequires:  php-composer(symfony/class-loader)
 BuildRequires:  %{_bindir}/phpunit
 BuildRequires:  %{_bindir}/phpab
-BuildRequires:  php-composer(fkooman/rest) >= 1.0.0
-BuildRequires:  php-composer(fkooman/rest) < 2.0.0
-BuildRequires:  php-composer(fkooman/rest-plugin-authentication) >= 1.0.0
-BuildRequires:  php-composer(fkooman/rest-plugin-authentication) < 2.0.0
+BuildRequires:  php-composer(fkooman/http) >= 1.0.0
+BuildRequires:  php-composer(fkooman/http) < 2.0.0
 BuildRequires:  php-composer(fkooman/io) >= 1.0.0
 BuildRequires:  php-composer(fkooman/io) < 2.0.0
+BuildRequires:  php-composer(fkooman/json) >= 1.0.0
+BuildRequires:  php-composer(fkooman/json) < 2.0.0
+BuildRequires:  php-composer(fkooman/rest) >= 1.0.1
+BuildRequires:  php-composer(fkooman/rest) < 2.0.0
+BuildRequires:  php-composer(fkooman/rest-plugin-authentication) >= 2.0.0
+BuildRequires:  php-composer(fkooman/rest-plugin-authentication) < 3.0.0
+BuildRequires:  php-composer(fkooman/tpl) >= 2.0.0
+BuildRequires:  php-composer(fkooman/tpl) < 3.0.0
 BuildRequires:  php-composer(guzzlehttp/guzzle) >= 5.3
 BuildRequires:  php-composer(guzzlehttp/guzzle) < 6.0
 %endif
 
-Requires:   php(language) >= 5.3.0
+Requires:   php(language) >= 5.4.0
 Requires:   php-dom
 Requires:   php-filter
 Requires:   php-libxml
 Requires:   php-pcre
 Requires:   php-spl
 Requires:   php-standard
-Requires:   php-composer(fkooman/rest) >= 1.0.0
-Requires:   php-composer(fkooman/rest) < 2.0.0
-Requires:   php-composer(fkooman/rest-plugin-authentication) >= 1.0.0
-Requires:   php-composer(fkooman/rest-plugin-authentication) < 2.0.0
+Requires:   php-composer(fkooman/http) >= 1.0.0
+Requires:   php-composer(fkooman/http) < 2.0.0
 Requires:   php-composer(fkooman/io) >= 1.0.0
 Requires:   php-composer(fkooman/io) < 2.0.0
+Requires:   php-composer(fkooman/json) >= 1.0.0
+Requires:   php-composer(fkooman/json) < 2.0.0
+Requires:   php-composer(fkooman/rest) >= 1.0.1
+Requires:   php-composer(fkooman/rest) < 2.0.0
+Requires:   php-composer(fkooman/rest-plugin-authentication) >= 2.0.0
+Requires:   php-composer(fkooman/rest-plugin-authentication) < 3.0.0
+Requires:   php-composer(fkooman/tpl) >= 2.0.0
+Requires:   php-composer(fkooman/tpl) < 3.0.0
 Requires:   php-composer(guzzlehttp/guzzle) >= 5.3
 Requires:   php-composer(guzzlehttp/guzzle) < 6.0
 
@@ -98,6 +111,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Fri Jan 22 2016 François Kooman <fkooman@tuxed.net> - 2.0.0-1
+- update to 2.0.0
+
 * Tue Oct 13 2015 François Kooman <fkooman@tuxed.net> - 1.0.2-1
 - update to 1.0.2
 

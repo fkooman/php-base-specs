@@ -18,7 +18,10 @@ $fedoraClassLoader->addPrefixes(array(
     'fkooman\\Rest\\Plugin\\Authentication\\IndieAuth' => dirname(dirname(dirname(dirname(dirname(__DIR__))))),
 ));
 
-require_once $vendorDir.'/fkooman/Rest/autoload.php';
+require_once $vendorDir.'/fkooman/Http/autoload.php';
 require_once $vendorDir.'/fkooman/IO/autoload.php';
+require_once $vendorDir.'/fkooman/Json/autoload.php';
+require_once $vendorDir.'/fkooman/Rest/autoload.php';
 require_once $vendorDir.'/fkooman/Rest/Plugin/Authentication/autoload.php';
+require_once $vendorDir.'/fkooman/Tpl/autoload.php';
 require_once $vendorDir.'/GuzzleHttp/autoload.php';
