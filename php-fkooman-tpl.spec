@@ -4,13 +4,13 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-tpl
-%global github_commit           ce51fa8da33d231aaeefd4558f1d813a1edc5931
+%global github_commit           d6abca430ff050890f93eb353158b8ed3dc91bf4
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    2.0.0
-Release:    3%{?dist}
+Version:    2.1.0
+Release:    1%{?dist}
 Summary:    Simple Template Abstraction Library
 
 Group:      System Environment/Libraries
@@ -53,6 +53,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Thu Feb 04 2016 François Kooman <fkooman@tuxed.net> - 2.1.0-1
+- update to 2.1.0
+
 * Tue Sep 08 2015 François Kooman <fkooman@tuxed.net> - 2.0.0-3
 - change source0 to commit reference
 - other cleanups

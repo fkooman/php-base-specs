@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-tpl-twig
-%global github_commit           c1f50f49ffe430b12e36c2a8e5441cd87830484a
+%global github_commit           be1eb48678b12bbd501c1be5abfe3263551dc976
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    1.1.0
+Version:    1.2.0
 Release:    1%{?dist}
 Summary:    Twig for Simple Template Abstraction Library
 
@@ -31,7 +31,7 @@ BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  php-composer(symfony/class-loader)
 BuildRequires:  %{_bindir}/phpunit
 BuildRequires:  %{_bindir}/phpab
-BuildRequires:  php-composer(fkooman/tpl) >= 2.0.0
+BuildRequires:  php-composer(fkooman/tpl) >= 2.1.0
 BuildRequires:  php-composer(fkooman/tpl) < 3.0.0
 BuildRequires:  php-pear(pear.twig-project.org/Twig) >= 1.18
 BuildRequires:  php-pear(pear.twig-project.org/Twig) < 2.0
@@ -41,7 +41,7 @@ Requires:   php(language) >= 5.3.0
 Requires:   php-json
 Requires:   php-spl
 Requires:   php-composer(symfony/class-loader)
-Requires:   php-composer(fkooman/tpl) >= 2.0.0
+Requires:   php-composer(fkooman/tpl) >= 2.1.0
 Requires:   php-composer(fkooman/tpl) < 3.0.0
 Requires:   php-pear(pear.twig-project.org/Twig) >= 1.18
 Requires:   php-pear(pear.twig-project.org/Twig) < 2.0
@@ -81,6 +81,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Thu Feb 04 2016 François Kooman <fkooman@tuxed.net> - 1.2.0-1
+- update to 1.2.0
+
 * Thu Dec 17 2015 François Kooman <fkooman@tuxed.net> - 1.1.0-1
 - update to 1.1.0
 
