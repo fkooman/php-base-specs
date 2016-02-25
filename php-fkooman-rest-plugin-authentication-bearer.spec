@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-rest-plugin-authentication-bearer
-%global github_commit           3cee95c9a7e84f8e8370ba0a7fe9f852a7223b25
+%global github_commit           f0abf30d3835a8dd39fb86899073128543067d61
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    2.1.0
+Version:    2.2.0
 Release:    1%{?dist}
 Summary:    Bearer Authentication plugin for fkooman/rest
 
@@ -92,6 +92,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Thu Feb 25 2016 François Kooman <fkooman@tuxed.net> - 2.2.0-1
+- update to 2.2.0
+
 * Sat Dec 05 2015 François Kooman <fkooman@tuxed.net> - 2.1.0-1
 - update to 2.1.0
 
