@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-json
-%global github_commit           2767e16032401ed2395c33282709e48b8e41cc6f
+%global github_commit           af0016d4a1d660f945ad4a10772cbdacb698a3ac
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,8 +13,8 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    1.0.0
-Release:    3%{?dist}
+Version:    2.0.0
+Release:    1%{?dist}
 Summary:    JSON convenience library written in PHP
 
 Group:      System Environment/Libraries
@@ -28,12 +28,16 @@ BuildArch:  noarch
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n) 
 
 %if %{with_tests}
+BuildRequires:  php(language) >= 5.4
+BuildRequires:  php-json
+BuildRequires:  php-spl
+BuildRequires:  php-iconv
 BuildRequires:  php-composer(symfony/class-loader)
 BuildRequires:  %{_bindir}/phpunit
 BuildRequires:  %{_bindir}/phpab
 %endif
 
-Requires:   php(language) >= 5.3.3
+Requires:   php(language) >= 5.4
 Requires:   php-json
 Requires:   php-spl
 Requires:   php-composer(symfony/class-loader)
@@ -74,6 +78,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Fri Mar 25 2016 François Kooman <fkooman@tuxed.net> - 2.0.0-1
+- update to 2.0.0
+
 * Mon Sep 07 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-3
 - change source0 to commit reference
 - other cleanups
