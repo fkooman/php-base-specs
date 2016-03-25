@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-oauth
-%global github_commit           a7acb8c77fb7359ce6a23b140258daf587baac4e
+%global github_commit           41d2ca070c6e4a9e868e5f750f21848365a2c3fc
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    5.0.1
+Version:    5.0.2
 Release:    1%{?dist}
 Summary:    OAuth 2.0 Authorization Server library
 
@@ -37,8 +37,8 @@ BuildRequires:  php-standard
 BuildRequires:  php-composer(symfony/class-loader)
 BuildRequires:  %{_bindir}/phpunit
 BuildRequires:  %{_bindir}/phpab
-BuildRequires:  php-composer(fkooman/json) >= 1.0.0
-BuildRequires:  php-composer(fkooman/json) < 2.0.0
+BuildRequires:  php-composer(fkooman/json) >= 2.0.0
+BuildRequires:  php-composer(fkooman/json) < 3.0.0
 BuildRequires:  php-composer(fkooman/io) >= 1.0.0
 BuildRequires:  php-composer(fkooman/io) < 2.0.0
 BuildRequires:  php-composer(fkooman/http) >= 1.1.0
@@ -61,8 +61,8 @@ Requires:   php-pcre
 Requires:   php-pdo
 Requires:   php-spl
 Requires:   php-standard
-Requires:   php-composer(fkooman/json) >= 1.0.0
-Requires:   php-composer(fkooman/json) < 2.0.0
+Requires:   php-composer(fkooman/json) >= 2.0.0
+Requires:   php-composer(fkooman/json) < 3.0.0
 Requires:   php-composer(fkooman/io) >= 1.0.0
 Requires:   php-composer(fkooman/io) < 2.0.0
 Requires:   php-composer(fkooman/http) >= 1.1.0
@@ -115,6 +115,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Fri Mar 25 2016 François Kooman <fkooman@tuxed.net> - 5.0.2-1
+- update to 5.0.2
+
 * Tue Nov 24 2015 François Kooman <fkooman@tuxed.net> - 5.0.1-1
 - update to 5.0.1
 
