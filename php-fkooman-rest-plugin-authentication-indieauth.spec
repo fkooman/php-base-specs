@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-rest-plugin-authentication-indieauth
-%global github_commit           579c356b6770b0351e9e773853048fa98a21cf1c
+%global github_commit           9978fcddde16389466221163428aacf5a8182192
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    2.0.0
+Version:    2.0.1
 Release:    1%{?dist}
 Summary:    IndieAuth Authentication plugin for fkooman/rest
 
@@ -42,8 +42,8 @@ BuildRequires:  php-composer(fkooman/http) >= 1.0.0
 BuildRequires:  php-composer(fkooman/http) < 2.0.0
 BuildRequires:  php-composer(fkooman/io) >= 1.0.0
 BuildRequires:  php-composer(fkooman/io) < 2.0.0
-BuildRequires:  php-composer(fkooman/json) >= 1.0.0
-BuildRequires:  php-composer(fkooman/json) < 2.0.0
+BuildRequires:  php-composer(fkooman/json) >= 2.0.0
+BuildRequires:  php-composer(fkooman/json) < 3.0.0
 BuildRequires:  php-composer(fkooman/rest) >= 1.0.1
 BuildRequires:  php-composer(fkooman/rest) < 2.0.0
 BuildRequires:  php-composer(fkooman/rest-plugin-authentication) >= 2.0.0
@@ -65,8 +65,8 @@ Requires:   php-composer(fkooman/http) >= 1.0.0
 Requires:   php-composer(fkooman/http) < 2.0.0
 Requires:   php-composer(fkooman/io) >= 1.0.0
 Requires:   php-composer(fkooman/io) < 2.0.0
-Requires:   php-composer(fkooman/json) >= 1.0.0
-Requires:   php-composer(fkooman/json) < 2.0.0
+Requires:   php-composer(fkooman/json) >= 2.0.0
+Requires:   php-composer(fkooman/json) < 3.0.0
 Requires:   php-composer(fkooman/rest) >= 1.0.1
 Requires:   php-composer(fkooman/rest) < 2.0.0
 Requires:   php-composer(fkooman/rest-plugin-authentication) >= 2.0.0
@@ -111,6 +111,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Fri Mar 25 2016 François Kooman <fkooman@tuxed.net> - 2.0.1-1
+- update to 2.0.1
+
 * Fri Jan 22 2016 François Kooman <fkooman@tuxed.net> - 2.0.0-1
 - update to 2.0.0
 
