@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-oauth
-%global github_commit           0120d6176a46c238d40ca2bdfde1086ed1f814c9
+%global github_commit           ab7e301e2f8def5fe64e6ede2072d51a7d5f1bc9
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -41,6 +41,8 @@ BuildRequires:  php-composer(fkooman/json) >= 2.0.0
 BuildRequires:  php-composer(fkooman/json) < 3.0.0
 BuildRequires:  php-composer(fkooman/http) >= 1.1.0
 BuildRequires:  php-composer(fkooman/http) < 2.0.0
+BuildRequires:  php-composer(fkooman/io) >= 1.0.2
+BuildRequires:  php-composer(fkooman/io) < 2.0.0
 BuildRequires:  php-composer(fkooman/rest) >= 1.0.0
 BuildRequires:  php-composer(fkooman/rest) < 2.0.0
 BuildRequires:  php-composer(fkooman/tpl) >= 2.0.0
@@ -51,8 +53,6 @@ BuildRequires:  php-composer(fkooman/rest-plugin-authentication-basic) >= 2.0.0
 BuildRequires:  php-composer(fkooman/rest-plugin-authentication-basic) < 3.0.0
 BuildRequires:  php-composer(fkooman/base64) >= 1.0.0
 BuildRequires:  php-composer(fkooman/base64) < 2.0.0
-BuildRequires:  php-composer(paragonie/random_compat) >= 1.0.0
-BuildRequires:  php-composer(paragonie/random_compat) < 2.0.0
 %endif
 
 Requires:   php(language) >= 5.4
@@ -63,6 +63,8 @@ Requires:   php-spl
 Requires:   php-standard
 Requires:   php-composer(fkooman/json) >= 2.0.0
 Requires:   php-composer(fkooman/json) < 3.0.0
+Requires:   php-composer(fkooman/io) >= 1.0.2
+Requires:   php-composer(fkooman/io) < 2.0.0
 Requires:   php-composer(fkooman/http) >= 1.1.0
 Requires:   php-composer(fkooman/http) < 2.0.0
 Requires:   php-composer(fkooman/rest) >= 1.0.0
@@ -75,8 +77,6 @@ Requires:   php-composer(fkooman/rest-plugin-authentication-basic) >= 2.0.0
 Requires:   php-composer(fkooman/rest-plugin-authentication-basic) < 3.0.0
 Requires:   php-composer(fkooman/base64) >= 1.0.0
 Requires:   php-composer(fkooman/base64) < 2.0.0
-Requires:   php-composer(paragonie/random_compat) >= 1.0.0
-Requires:   php-composer(paragonie/random_compat) < 2.0.0
 Requires:   php-composer(symfony/class-loader)
 
 Provides:   php-composer(%{composer_vendor}/%{composer_project}) = %{version}
