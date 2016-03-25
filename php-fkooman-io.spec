@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-io
-%global github_commit           0c2d8c49b1e37b9e3593c9e8dc51f4abc0c6712a
+%global github_commit           6bb59459bf43a6c7b9e42ddd0c04f78757a62fc1
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    1.0.1
+Version:    1.0.2
 Release:    1%{?dist}
 Summary:    Simple IO library
 
@@ -28,17 +28,24 @@ BuildArch:  noarch
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n) 
 
 %if %{with_tests}
+BuildRequires:  php(language) >= 5.3.3
+BuildRequires:  php-date
+BuildRequires:  php-spl
+BuildRequires:  php-standard
 BuildRequires:  php-composer(symfony/class-loader)
+BuildRequires:  php-composer(paragonie/random_compat) >= 1.0.0
+BuildRequires:  php-composer(paragonie/random_compat) < 2.0.0
 BuildRequires:  %{_bindir}/phpunit
 BuildRequires:  %{_bindir}/phpab
 %endif
 
 Requires:   php(language) >= 5.3.3
 Requires:   php-date
-Requires:   php-openssl
 Requires:   php-spl
 Requires:   php-standard
 Requires:   php-composer(symfony/class-loader)
+Requires:   php-composer(paragonie/random_compat) >= 1.0.0
+Requires:   php-composer(paragonie/random_compat) < 2.0.0
 
 Provides:   php-composer(%{composer_vendor}/%{composer_project}) = %{version}
 
@@ -75,6 +82,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Fri Mar 25 2016 François Kooman <fkooman@tuxed.net> - 1.0.2-1
+- update to 1.0.2
+
 * Sat Oct 03 2015 François Kooman <fkooman@tuxed.net> - 1.0.1-1
 - update to 1.0.1
 

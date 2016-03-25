@@ -17,3 +17,5 @@ if (!isset($fedoraClassLoader) || !($fedoraClassLoader instanceof \Symfony\Compo
 $fedoraClassLoader->addPrefixes(array(
     'fkooman\\IO' => dirname(dirname(__DIR__)),
 ));
+
+require_once $vendorDir.'/random_compat/autoload.php';
