@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-rest-plugin-authentication-form
-%global github_commit           cd13d0871af58891355ece42e1cd05d62feb64de
+%global github_commit           69771491e3913df3ae629c0678b7e817f922ba0d
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    3.0.2
+Version:    3.0.3
 Release:    1%{?dist}
 Summary:    HTML Form Authentication plugin for fkooman/rest
 
@@ -44,8 +44,8 @@ BuildRequires:  php-composer(fkooman/rest-plugin-authentication) < 3.0.0
 BuildRequires:  php-composer(fkooman/tpl) >= 2.0.0
 BuildRequires:  php-composer(fkooman/tpl) < 3.0.0
 BuildRequires:  php-password-compat >= 1.0.0
-BuildRequires:  php-composer(fkooman/json) >= 1.0.0
-BuildRequires:  php-composer(fkooman/json) < 2.0.0
+BuildRequires:  php-composer(fkooman/json) >= 2.0.0
+BuildRequires:  php-composer(fkooman/json) < 3.0.0
 %endif
 
 Requires:   php(language) >= 5.4
@@ -61,8 +61,8 @@ Requires:   php-composer(fkooman/rest-plugin-authentication) < 3.0.0
 Requires:   php-composer(fkooman/tpl) >= 2.0.0
 Requires:   php-composer(fkooman/tpl) < 3.0.0
 Requires:   php-password-compat >= 1.0.0
-Requires:   php-composer(fkooman/json) >= 1.0.0
-Requires:   php-composer(fkooman/json) < 2.0.0
+Requires:   php-composer(fkooman/json) >= 2.0.0
+Requires:   php-composer(fkooman/json) < 3.0.0
 
 Provides:   php-composer(%{composer_vendor}/%{composer_project}) = %{version}
 
@@ -99,6 +99,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Fri Mar 25 2016 François Kooman <fkooman@tuxed.net> - 3.0.3-1
+- update to 3.0.3
+
 * Mon Mar 07 2016 François Kooman <fkooman@tuxed.net> - 3.0.2-1
 - update to 3.0.2
 
