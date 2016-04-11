@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-tpl-twig
-%global github_commit           be1eb48678b12bbd501c1be5abfe3263551dc976
+%global github_commit           8d1a050e1a2b8cfbe3f0bf52382951bd99687ace
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    1.2.0
+Version:    1.3.0
 Release:    1%{?dist}
 Summary:    Twig for Simple Template Abstraction Library
 
@@ -28,23 +28,30 @@ BuildArch:  noarch
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n) 
 
 %if %{with_tests}
+BuildRequires:  php(language) >= 5.4.0
+BuildRequires:  php-spl
+BuildRequires:  php-gettext
 BuildRequires:  php-composer(symfony/class-loader)
 BuildRequires:  %{_bindir}/phpunit
 BuildRequires:  %{_bindir}/phpab
 BuildRequires:  php-composer(fkooman/tpl) >= 2.1.0
 BuildRequires:  php-composer(fkooman/tpl) < 3.0.0
-BuildRequires:  php-pear(pear.twig-project.org/Twig) >= 1.18
-BuildRequires:  php-pear(pear.twig-project.org/Twig) < 2.0
+BuildRequires:  php-composer(twig/twig) >= 1.20
+BuildRequires:  php-composer(twig/twig) < 2.0
+BuildRequires:  php-composer(twig/extensions) >= 1.3.0
+BuildRequires:  php-composer(twig/extensions) < 2
 %endif
 
-Requires:   php(language) >= 5.3.0
-Requires:   php-json
+Requires:   php(language) >= 5.4.0
 Requires:   php-spl
+Requires:   php-gettext
 Requires:   php-composer(symfony/class-loader)
 Requires:   php-composer(fkooman/tpl) >= 2.1.0
 Requires:   php-composer(fkooman/tpl) < 3.0.0
-Requires:   php-pear(pear.twig-project.org/Twig) >= 1.18
-Requires:   php-pear(pear.twig-project.org/Twig) < 2.0
+Requires:   php-composer(twig/twig) >= 1.20
+Requires:   php-composer(twig/twig) < 2.0
+Requires:   php-composer(twig/extensions) >= 1.3.0
+Requires:   php-composer(twig/extensions) < 2
 
 Provides:   php-composer(%{composer_vendor}/%{composer_project}) = %{version}
 
@@ -81,6 +88,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Mon Apr 11 2016 François Kooman <fkooman@tuxed.net> - 1.3.0-1
+- update to 1.3.0
+
 * Thu Feb 04 2016 François Kooman <fkooman@tuxed.net> - 1.2.0-1
 - update to 1.2.0
 

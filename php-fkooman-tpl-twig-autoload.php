@@ -20,3 +20,4 @@ $fedoraClassLoader->addPrefixes(array(
 
 require_once $vendorDir.'/fkooman/Tpl/autoload.php';
 require_once $vendorDir.'/Twig/autoload.php';
+require_once $vendorDir.'/Twig/Extensions/autoload.php';
