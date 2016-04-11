@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-tpl-twig
-%global github_commit           8d1a050e1a2b8cfbe3f0bf52382951bd99687ace
+%global github_commit           6e2187ef357d75f9f446b382f110cd7d7d290fc8
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    1.3.0
+Version:    1.3.2
 Release:    1%{?dist}
 Summary:    Twig for Simple Template Abstraction Library
 
@@ -88,6 +88,12 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Mon Apr 11 2016 François Kooman <fkooman@tuxed.net> - 1.3.2-1
+- update to 1.3.2
+
+* Mon Apr 11 2016 François Kooman <fkooman@tuxed.net> - 1.3.1-1
+- update to 1.3.1
+
 * Mon Apr 11 2016 François Kooman <fkooman@tuxed.net> - 1.3.0-1
 - update to 1.3.0
 
