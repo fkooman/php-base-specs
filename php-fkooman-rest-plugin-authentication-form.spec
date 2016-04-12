@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-rest-plugin-authentication-form
-%global github_commit           69771491e3913df3ae629c0678b7e817f922ba0d
+%global github_commit           be285cf0577d0597104aaaab697f833a15ea99ec
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    3.0.3
+Version:    3.0.4
 Release:    1%{?dist}
 Summary:    HTML Form Authentication plugin for fkooman/rest
 
@@ -99,6 +99,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Tue Apr 12 2016 François Kooman <fkooman@tuxed.net> - 3.0.4-1
+- update to 3.0.4
+
 * Fri Mar 25 2016 François Kooman <fkooman@tuxed.net> - 3.0.3-1
 - update to 3.0.3
 
