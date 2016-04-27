@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-config
-%global github_commit           961f2cb63bab8916c921a7b29a7eb3e22b5bcda1
+%global github_commit           a93d481c46fdd3ece1699d22340d53b769da4902
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,8 +13,8 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    1.0.0
-Release:    3%{?dist}
+Version:    1.0.1
+Release:    1%{?dist}
 Summary:    Read and write configuration files
 
 Group:      System Environment/Libraries
@@ -79,6 +79,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Wed Apr 27 2016 François Kooman <fkooman@tuxed.net> - 1.0.1-1
+- update to 1.0.1
+
 * Mon Nov 09 2015 François Kooman <fkooman@tuxed.net> - 1.0.0-3
 - point to old autoloader.php instead of autoload.php as it is missing in el7
 
