@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-io
-%global github_commit           1ed0e1c0282f373f6555c19cb563f2aaa1b0d6f1
+%global github_commit           0a7cd120cb067fdfcd9b146fd03ffc2cb7fdc465
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    1.1.0
+Version:    1.2.0
 Release:    1%{?dist}
 Summary:    Simple IO library
 
@@ -82,6 +82,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Wed Apr 27 2016 François Kooman <fkooman@tuxed.net> - 1.2.0-1
+- update to 1.2.0
+
 * Mon Apr 25 2016 François Kooman <fkooman@tuxed.net> - 1.1.0-1
 - update to 1.1.0
 
