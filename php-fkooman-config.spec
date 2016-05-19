@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-config
-%global github_commit           a93d481c46fdd3ece1699d22340d53b769da4902
+%global github_commit           b7ef9f6c7c3e40a8a9d62a471a49f8ee9338ac4d
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    1.0.1
+Version:    1.0.2
 Release:    1%{?dist}
 Summary:    Read and write configuration files
 
@@ -79,6 +79,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Thu May 19 2016 François Kooman <fkooman@tuxed.net> - 1.0.2-1
+- update to 1.0.2
+
 * Wed Apr 27 2016 François Kooman <fkooman@tuxed.net> - 1.0.1-1
 - update to 1.0.1
 
