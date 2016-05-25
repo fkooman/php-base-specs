@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-io
-%global github_commit           0a7cd120cb067fdfcd9b146fd03ffc2cb7fdc465
+%global github_commit           e478f37798af631ad49c3154420c24c6bbe0484c
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    1.2.0
+Version:    2.0.0
 Release:    1%{?dist}
 Summary:    Simple IO library
 
@@ -28,7 +28,7 @@ BuildArch:  noarch
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n) 
 
 %if %{with_tests}
-BuildRequires:  php(language) >= 5.3.3
+BuildRequires:  php(language) >= 5.4
 BuildRequires:  php-date
 BuildRequires:  php-spl
 BuildRequires:  php-standard
@@ -39,7 +39,7 @@ BuildRequires:  %{_bindir}/phpunit
 BuildRequires:  %{_bindir}/phpab
 %endif
 
-Requires:   php(language) >= 5.3.3
+Requires:   php(language) >= 5.4
 Requires:   php-date
 Requires:   php-spl
 Requires:   php-standard
@@ -82,6 +82,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Wed May 25 2016 François Kooman <fkooman@tuxed.net> - 2.0.0-1
+- update to 2.0.0
+
 * Wed Apr 27 2016 François Kooman <fkooman@tuxed.net> - 1.2.0-1
 - update to 1.2.0
 
