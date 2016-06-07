@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-oauth2-client
-%global github_commit           211599ab026f3c951d27e37884785ddac0490950
+%global github_commit           34ddd9fcebf44cb5c34bf53d9d1158bb5c9ffcc5
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    1.0.0
+Version:    1.0.1
 Release:    1%{?dist}
 Summary:    Very simple OAuth 2.0 client
 
@@ -84,6 +84,8 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Sat Jun 04 2016 François Kooman <fkooman@tuxed.net> - 1.0.1-1
+- update to 1.0.1
+
 * Mon May 30 2016 François Kooman <fkooman@tuxed.net> - 1.0.0-1
 - initial package
-
