@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-http
-%global github_commit           079ee82d777dc462f59d9d8344eba469182b08ed
+%global github_commit           d132f317aea49d9900719ee46fe26c4e1ff78116
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    1.6.2
+Version:    1.7.0
 Release:    1%{?dist}
 Summary:    Simple PHP library for dealing with HTTP requests and responses
 
@@ -31,18 +31,20 @@ BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  %{_bindir}/phpunit
 BuildRequires:  %{_bindir}/phpab
 BuildRequires:  php-composer(symfony/class-loader)
-BuildRequires:  php-composer(fkooman/json) >= 2.0.0
-BuildRequires:  php-composer(fkooman/json) < 3.0.0
+BuildRequires:  php-mbstring
+BuildRequires:  php-session
+BuildRequires:  php-spl
+BuildRequires:  php-json
+BuildRequires:  php-standard
 %endif
 
 Requires:   php(language) >= 5.3.0
 Requires:   php-mbstring
 Requires:   php-session
 Requires:   php-spl
+Requires:   php-json
 Requires:   php-standard
 Requires:   php-composer(symfony/class-loader)
-Requires:   php-composer(fkooman/json) >= 2.0.0
-Requires:   php-composer(fkooman/json) < 3.0.0
 
 Provides:   php-composer(%{composer_vendor}/%{composer_project}) = %{version}
 
@@ -79,6 +81,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Tue Jun 07 2016 François Kooman <fkooman@tuxed.net> - 1.7.0-1
+- update to 1.7.0
+
 * Fri Mar 25 2016 François Kooman <fkooman@tuxed.net> - 1.6.2-1
 - update to 1.6.2
 

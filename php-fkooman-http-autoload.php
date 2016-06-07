@@ -17,5 +17,3 @@ if (!isset($fedoraClassLoader) || !($fedoraClassLoader instanceof \Symfony\Compo
 $fedoraClassLoader->addPrefixes(array(
     'fkooman\\Http' => dirname(dirname(__DIR__)),
 ));
-
-require_once $vendorDir.'/fkooman/Json/autoload.php';
