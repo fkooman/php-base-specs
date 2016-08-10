@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-lib-config
-%global github_commit           b7ef9f6c7c3e40a8a9d62a471a49f8ee9338ac4d
+%global github_commit           92eb45e9c32b9fc41d25824dc47d9462b990085c
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    1.0.2
+Version:    1.1.0
 Release:    1%{?dist}
 Summary:    Read and write configuration files
 
@@ -34,7 +34,7 @@ BuildRequires:  %{_bindir}/phpab
 BuildRequires:  php-composer(symfony/yaml)
 %endif
 
-Requires:   php(language) >= 5.3.3
+Requires:   php(language) >= 5.4
 Requires:   php-spl
 Requires:   php-standard
 Requires:   php-composer(symfony/class-loader)
@@ -79,6 +79,9 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Wed Aug 10 2016 François Kooman <fkooman@tuxed.net> - 1.1.0-1
+- update to 1.1.0
+
 * Thu May 19 2016 François Kooman <fkooman@tuxed.net> - 1.0.2-1
 - update to 1.0.2
 
