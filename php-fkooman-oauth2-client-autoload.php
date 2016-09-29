@@ -19,4 +19,3 @@ $fedoraClassLoader->addPrefixes(array(
 ));
 
 require_once $vendorDir.'/random_compat/autoload.php';
-require_once $vendorDir.'/GuzzleHttp/autoload.php';

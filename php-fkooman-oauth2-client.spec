@@ -4,7 +4,7 @@
 
 %global github_owner            fkooman
 %global github_name             php-oauth2-client
-%global github_commit           34ddd9fcebf44cb5c34bf53d9d1158bb5c9ffcc5
+%global github_commit           5dedc8cb99597f3d59018bc4f39e526de292788b
 %global github_short            %(c=%{github_commit}; echo ${c:0:7})
 %if 0%{?rhel} == 5
 %global with_tests              0%{?_with_tests:1}
@@ -13,7 +13,7 @@
 %endif
 
 Name:       php-%{composer_vendor}-%{composer_project}
-Version:    1.0.1
+Version:    2.0.1
 Release:    1%{?dist}
 Summary:    Very simple OAuth 2.0 client
 
@@ -28,24 +28,26 @@ BuildArch:  noarch
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n) 
 
 %if %{with_tests}
-BuildRequires:  php(language) >= 5.4
+BuildRequires:  php(language) >= 5.4.0
+BuildRequires:  php-curl
+BuildRequires:  php-json
+BuildRequires:  php-spl
 BuildRequires:  php-standard
 BuildRequires:  php-composer(symfony/class-loader)
 BuildRequires:  php-composer(paragonie/random_compat) >= 1.0.0
 BuildRequires:  php-composer(paragonie/random_compat) < 2.0.0
-BuildRequires:  php-composer(guzzlehttp/guzzle) >= 5.3
-BuildRequires:  php-composer(guzzlehttp/guzzle) < 6.0
 BuildRequires:  %{_bindir}/phpunit
 BuildRequires:  %{_bindir}/phpab
 %endif
 
-Requires:   php(language) >= 5.4
+Requires:   php(language) >= 5.4.0
+Requires:   php-curl
+Requires:   php-json
+Requires:   php-spl
 Requires:   php-standard
 Requires:   php-composer(symfony/class-loader)
 Requires:   php-composer(paragonie/random_compat) >= 1.0.0
 Requires:   php-composer(paragonie/random_compat) < 2.0.0
-Requires:   php-composer(guzzlehttp/guzzle) >= 5.3
-Requires:   php-composer(guzzlehttp/guzzle) < 6.0
 
 Provides:   php-composer(%{composer_vendor}/%{composer_project}) = %{version}
 
@@ -84,6 +86,12 @@ rm -rf %{buildroot}
 %license COPYING
 
 %changelog
+* Thu Sep 29 2016 François Kooman <fkooman@tuxed.net> - 2.0.1-1
+- update to 2.0.1
+
+* Wed Sep 21 2016 François Kooman <fkooman@tuxed.net> - 2.0.0-1
+- update to 2.0.0
+
 * Sat Jun 04 2016 François Kooman <fkooman@tuxed.net> - 1.0.1-1
 - update to 1.0.1
 
